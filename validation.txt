@@ -1,0 +1,31 @@
+ReLogicHijack / Terraria 1.4.5.8 validation - 13 October 2026
+
+Current scope: dependency-hijacking demo, overlay, fullbright and flight.
+Only ReLogic.dll and ReLogicHijack.dll are installed, plus their receipt.
+Mono.Cecil is a build-time dependency only.
+
+Earlier singleplayer fullbright runtime validation:
+PASS: Fullbright produces white in Color, White, Retro and Trippy modes.
+PASS: Disabling fullbright restores the original lighting engine.
+Evidence: historical client log in local outputs/.
+The lighting wrapper implementation is retained in FullbrightController.cs.
+
+Earlier local vanilla multiplayer flight runtime validation:
+PASS: Joined using a disposable character and world.
+PASS: Flew upward, hovered with zero drift, and crossed solid terrain.
+PASS: Safe-off check refused disabling inside solid terrain.
+PASS: Disabling in open air restored normal movement.
+PASS: Death reset flight; manual F6 toggling worked.
+PASS: Server observer matched three solid-terrain position samples.
+Evidence: outputs/flight-client-lab.log; tests/FlightLab.cs;
+tests/ServerObserver.cs. The original server observer log is unavailable
+in this source export; the client log records the scripted probe.
+
+Current build, dependency and upgrade checks are recorded separately in
+outputs/minimal-demo-verification.txt. Runtime gameplay checks above
+predate the simplification to two modes and were not rerun by those checks.
+
+Controls: F4 fullbright, F6 noclip flight; both start OFF.
+Normal release builds exclude the scripted probes.
+Unverified: multiplayer fullbright, Steam friend-lobby transport,
+remote/moderated servers, extended sessions and other game versions.

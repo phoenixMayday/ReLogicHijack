@@ -1,0 +1,23 @@
+# Local builds contain generated game-owned ReLogic code.
+/bin/
+/work/
+/outputs/
+/build-manifest.json
+/lib/GenerateProxy.exe
+
+# IDE and editor state
+.vs/
+.idea/
+*.user
+*.suo
+
+# Game/test saves and diagnostic output
+*.log
+*.dmp
+*.wld
+*.plr
+*.map
+*.bak
+*.bak2
+ReLogicHijack.install.json
+TerrariaOverlayPoC.install.json
